@@ -1,0 +1,49 @@
+la_fleur_symfony_homepage:
+    path:     /
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:index }
+
+
+la_fleur_symfony_catalogue:
+    path:     /catalogue
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:index }
+
+
+la_fleur_symfony_categorie:
+    path:     /catalogue/{cat}
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:categorie }
+
+
+la_fleur_symfony_backoff:
+    path:     /administrer
+    defaults: { _controller: LaFleurSymfonyBundle::index }
+
+la_fleur_symfony_accueil:
+    path: /accueil
+    defaults: { _controller: LaFleurSymfonyBundle:Default:accueil }
+
+
+la_fleur_symfony_ajouterpanier:
+    path: /ajouterpanier/{cat}/{prod}
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:ajouterPanier }
+
+la_fleur_symfony_voirPanier:
+    path: /panier
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:voirPanier }
+
+
+la_fleur_symfony_nouveau:
+    path: /nouveau
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:nouveauClient }
+
+
+la_fleur_symfony_connec:
+    path: /connec
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:connectionClient }
+
+la_fleur_symfony_validerPanier:
+    path: /validPanier
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:validPanier}
+
+la_fleur_symfony_retirerPanier:
+    path: /retirerPanier/{id}
+    defaults: { _controller: LaFleurSymfonyBundle:catalogue:retirerPanier}

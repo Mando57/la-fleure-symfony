@@ -1,0 +1,11 @@
+{% extends "LaFleurSymfonyBundle:layout:layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Accueil général {% endblock %}
+
+{% block lateral %}
+    {% for categ in lesCategories %}
+        <li>
+            <a href={{ path('la_fleur_symfony_categorie', {'cat':categ.id}) }}> {{categ.libelle}}</a>
+        </li>
+    {% endfor %}
+{% endblock %}

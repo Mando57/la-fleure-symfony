@@ -1,0 +1,45 @@
+{% extends "LaFleurSymfonyBundle:layout:layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Panier {% endblock %}
+
+{% block content %}
+	{% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="message">
+			<ul><li>            
+				{{ flashMessage }}
+			</li></ul>
+        </div>
+    {% endfor %}
+
+	<form href={{ path("la_fleur_symfony_validerPanier") }} name='form1' method="post" action=>
+
+		{% if lePanier %}
+		    {% for item in lePanier %}
+		    
+		        <li>
+		        <p>
+				
+		        <img src={{ asset(item.image)}} alt=image />
+		        {{item.description}} 
+		         {{ item.prix}} euro
+		        
+		    	<input type='hidden' name='produit[]' value={{ item.id }} />
+		    	<a href={{ path('la_fleur_symfony_retirerPanier',{'id':item.id}) }} ><img src={{ asset('images/retirerpanier.png')}} TITLE="Retirer du panier" ></a>
+		    	<input style="width:30px" type='text' value='1' name='quantite[]'/>
+			
+			
+			</p>
+		        </li>
+
+
+		    {% endfor %}
+
+	     {% if logged==1 %}
+    			<input type="submit" name='qte'/> 
+    	{% else %}
+    		Veuillez vous connectez/creer un compte avant de passer au paiement<br><input DISABLED type="submit"/><br><a href= > Connection ou creation de compte </a>';
+
+		{% endif %}
+	{% endif %}
+	</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+
+{% extends "LaFleurSymfonyBundle:layout:layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Validation du panier {% endblock %}
+
+{% block content %}
+   {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class='flash notice'>
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    	<form name='commande 'method='post'>
+            nom:<input id="nom" type="text" name="nom" size="30" maxlength="45">
+            <br>adresse :<input id="rue" type="text" name="rue" size="30" maxlength="45">
+            <br>code postal:<input id="cp" type="text" name="cp" size="5" maxlength="5">
+            <br>ville:<input id="ville" type="text" name="ville" size="25" maxlength="25">
+			<br><input type='submit' name='valider' value='creer commande' />
+		</form>
+    
+{% endblock %}

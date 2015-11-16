@@ -1,0 +1,3 @@
+la_fleur_symfony:
+    resource: "@LaFleurSymfonyBundle/Resources/config/routing.yml"
+    prefix:   /

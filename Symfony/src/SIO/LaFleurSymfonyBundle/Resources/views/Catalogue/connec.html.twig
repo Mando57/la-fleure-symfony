@@ -1,0 +1,18 @@
+
+{% extends "LaFleurSymfonyBundle:layout:layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Nouveau {% endblock %}
+
+{% block content %}
+   {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class='flash notice'>
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    	<form name='nouveau 'method='post'>
+			<input type='text' name='login' />
+			<input type='password' name='pwd'/>
+			<br><input type='submit' name='co' value='creer compte' />
+		</form>
+    
+{% endblock %}

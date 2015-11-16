@@ -1,0 +1,31 @@
+{% extends "LaFleurSymfonyBundle:layout:layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Accueil général {% endblock %}
+
+{%block lateral %}
+    {% for categ in lesCategories %}
+        <li>
+            <a href={{ path('la_fleur_symfony_categorie', {'cat':categ.id}) }}> {{categ.libelle}}</a>
+        </li>
+    {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+    <div id="produits">
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class='flash notice'>
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for prod in lesProduits %}
+    <ul>
+        <li><img src={{ asset(prod.image)}} alt=image /></li>
+        <li> {{prod.description}} </li>
+        <li> {{ prod.prix}} euro </li>
+        <li><a href={{ path("la_fleur_symfony_ajouterpanier",{'cat':laCateg,'prod':prod.id}) }}>
+            <img src={{ asset('images/mettrepanier.png')}} TITLE="ajouter au panier"></a></li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

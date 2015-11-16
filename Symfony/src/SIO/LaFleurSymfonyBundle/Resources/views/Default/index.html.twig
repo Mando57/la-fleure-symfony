@@ -1,0 +1,12 @@
+{% extends "LaFleurSymfonyBundle:layout:layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Accueil général {% endblock %}
+
+{% block content %}
+	{% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class='message'>
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    <div id='accueil'> Lafleur, le prince des fleurs sur internet</div>
+{% endblock %}
