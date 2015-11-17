@@ -22,9 +22,18 @@
     <li><a href={{ path('la_fleur_symfony_catalogue') }}> Voir le catalogue de fleurs </a></li>
     <li><a href={{ path('la_fleur_symfony_voirPanier') }}> Voir le panier</a></li>
     <li><a href="" >Administrer</a></li>
-    <li><a href={{ path('la_fleur_symfony_nouveau') }} >Créer un compte</a></li>
-    <li><a href={{ path('la_fleur_symfony_connec') }} >connecter</a></li>
-    {#
+    {% set layout = app.session.get('layout') %}
+    {% if layout==1 %}
+               
+        {% else %}
+        <li>
+            <a href={{ path('la_fleur_symfony_nouveau') }} >Créer un compte</a>
+        </li>
+        <li>
+            <a href={{ path('la_fleur_symfony_connec') }} >connecter</a>
+        </li>
+    {% endif %}
+       {#
 <!---<li><a href="index.php?uc=gererPanier&action=voirPanier"> Voir son panier </a></li>
 ajout du controle
 <li><a href="index.php?uc=connec&action=login"> Connection </a></li>

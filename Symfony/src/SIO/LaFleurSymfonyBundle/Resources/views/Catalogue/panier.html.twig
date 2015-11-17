@@ -3,6 +3,8 @@
 {% block title %} {{ parent() }} - Panier {% endblock %}
 
 {% block content %}
+<img src={{ asset('images/panier.gif') }}	alt="Panier" title="panier"/>
+
 	{% for flashMessage in app.session.flashbag.get('notice') %}
         <div class="message">
 			<ul><li>            

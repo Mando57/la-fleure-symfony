@@ -140,9 +140,11 @@ class catalogueController extends Controller
                 $try=$pdo->checkClient($login,$pwd);
                 if($try['logged']==true);
                 {
+                    $session= new Session;
 
                     $session->set('logged',true);
                     $session->set('userId',$try['id']);
+                    $session->set('layout',1);
                 }
                 $content = $this->get('templating')->render('LaFleurSymfonyBundle:Default:index.html.twig');
 
